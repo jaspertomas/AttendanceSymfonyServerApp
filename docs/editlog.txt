@@ -1,0 +1,24 @@
+to show status pending if checks not yet cleared:
+turning event check clear date from varchar to date
+
+adding a new date field checkcleardate to both invoice and event
+
+
+
+check date becomes test of whether has check transaction or not
+
+
+on invoice update:
+	invoice checkcleardate default = date
+on event update
+        if invoice.checkcleardate < event.checkcleardate
+		invoice.checkcleardate = event.checkcleardate
+
+
+on show page, 
+6:32 PM 9/28/2011
+* if transaction involved cheques and is fully paid, 
+if date today is on or after cheque clear date, 
+status is paid. 
+else 
+status is pending

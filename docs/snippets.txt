@@ -1,0 +1,63 @@
+    $this->forward404Unless($request->isMethod(sfRequest::POST));
+
+//receive multiple return values
+//get year and semester settings
+    list($year, $sem) = SettingTable::fetchYearAndSem();
+
+//doctrine query select
+    return Doctrine_Query::create()
+        ->from('StudentSubject ss')
+      	->where('ss.student_id = '.$this->getId())
+      	->andWhere('ss.status = "Passed"')
+      	->execute();
+
+
+//doctrine query delete
+    Doctrine_Query::create()
+        ->delete('StudentSection ss')
+      	->where('ss.student_id='.$this->getId().' and ss.year != '.$year)
+      	->orWhere('ss.student_id='.$this->getId().' and ss.semester != '.$sem)
+        ->execute();
+
+//doctrine query update
+      $products= Doctrine_Query::create()
+        ->update('Product p')
+        ->set('p.producttype_id','71')
+  ->where('p.name LIKE ?', array("%ERA PPR Elbow%"))
+  ->execute();
+
+
+//print notice or error
+    $message="Undo Checkout successful";
+    $this->getUser()->setFlash('notice', $message);
+    $this->redirect("student/view?id=".$this->student->getId());
+
+//show notices and errors
+<?php if ($sf_user->hasFlash('notice')): ?>
+  <div class="flash_msg"><font color=green><?php echo $sf_user->getFlash('notice') ?></font></div>
+<?php endif ?>
+<?php if ($sf_user->hasFlash('error')): ?>
+  <div class="flash_error"><font color=red><?php echo $sf_user->getFlash('error') ?></font></div>
+<?php endif ?>
+
+//javascript
+alert("");
+
+//javascript ajax
+$(document).on("click", ".add_student_section_button", function(e){
+    e.preventDefault();
+
+    var subject_id=$(this).attr("subject_id");
+    $.ajax({ // create an AJAX call...
+        data: $('#add_student_section_form').serialize(), // get the form data
+        type: $('#add_student_section_form').attr('method'), // GET or POST
+        url: $('#add_student_section_form').attr('action'), // the file to call
+        success: function(response) { // on success..
+            $('#add_student_section_form').html(response); // update the DIV
+            //hide all
+       		  $(".add_timeslot_tr").attr("hidden",true);
+       		  $(".add_timeslot_td").html("");
+        }
+    });
+});
+

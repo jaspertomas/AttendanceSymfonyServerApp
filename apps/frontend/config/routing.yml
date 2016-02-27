@@ -1,0 +1,397 @@
+account_entry:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AccountEntry
+    module:               account_entry
+    prefix_path:          /account_entry
+    column:               id
+    with_wildcard_routes: true
+
+profitdetail:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profitdetail
+    module:               profitdetail
+    prefix_path:          /profitdetail
+    column:               id
+    with_wildcard_routes: true
+
+priceitem:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Priceitem
+    module:               priceitem
+    prefix_path:          /priceitem
+    column:               id
+    with_wildcard_routes: true
+
+note:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Note
+    module:               note
+    prefix_path:          /note
+    column:               id
+    with_wildcard_routes: true
+
+customer_order:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CustomerOrder
+    module:               customer_order
+    prefix_path:          /customer_order
+    column:               id
+    with_wildcard_routes: true
+
+concern:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Concern
+    module:               concern
+    prefix_path:          /concern
+    column:               id
+    with_wildcard_routes: true
+
+pettycash:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Pettycash
+    module:               pettycash
+    prefix_path:          /pettycash
+    column:               id
+    with_wildcard_routes: true
+
+incheck:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Incheck
+    module:               incheck
+    prefix_path:          /incheck
+    column:               id
+    with_wildcard_routes: true
+
+outcheck:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Outcheck
+    module:               outcheck
+    prefix_path:          /outcheck
+    column:               id
+    with_wildcard_routes: true
+
+accountentry:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Accountentry
+    module:               accountentry
+    prefix_path:          /accountentry
+    column:               id
+    with_wildcard_routes: true
+
+account:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Account
+    module:               account
+    prefix_path:          /account
+    column:               id
+    with_wildcard_routes: true
+
+account_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AccountType
+    module:               account_type
+    prefix_path:          /account_type
+    column:               id
+    with_wildcard_routes: true
+
+account_category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AccountCategory
+    module:               account_category
+    prefix_path:          /account_category
+    column:               id
+    with_wildcard_routes: true
+
+#account_entry:
+#  class: sfDoctrineRouteCollection
+#  options:
+#    model:                AccountEntry
+#    module:               account_entry
+#    prefix_path:          /account_entry
+#    column:               id
+#    with_wildcard_routes: true
+
+journal_entry:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                JournalEntry
+    module:               journal_entry
+    prefix_path:          /journal_entry
+    column:               id
+    with_wildcard_routes: true
+
+pricelist:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Pricelist
+    module:               pricelist
+    prefix_path:          /pricelist
+    column:               id
+    with_wildcard_routes: true
+
+quote:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Quote
+    module:               quote
+    prefix_path:          /quote
+    column:               id
+    with_wildcard_routes: true
+
+journaldetail:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Journaldetail
+    module:               journaldetail
+    prefix_path:          /journaldetail
+    column:               id
+    with_wildcard_routes: true
+
+journal:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Journal
+    module:               journal
+    prefix_path:          /journal
+    column:               id
+    with_wildcard_routes: true
+
+producttype:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Producttype
+    module:               producttype
+    prefix_path:          /producttype
+    column:               id
+    with_wildcard_routes: true
+
+purchase_template:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                PurchaseTemplate
+    module:               purchase_template
+    prefix_path:          /purchase_template
+    column:               id
+    with_wildcard_routes: true
+
+invoice_template:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                InvoiceTemplate
+    module:               invoice_template
+    prefix_path:          /invoice_template
+    column:               id
+    with_wildcard_routes: true
+
+task:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Task
+    module:               task
+    prefix_path:          /task
+    column:               id
+    with_wildcard_routes: true
+
+notes:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Notes
+    module:               notes
+    prefix_path:          /notes
+    column:               id
+    with_wildcard_routes: true
+
+stockentry:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Stockentry
+    module:               stockentry
+    prefix_path:          /stockentry
+    column:               id
+    with_wildcard_routes: true
+
+stock:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Stock
+    module:               stock
+    prefix_path:          /stock
+    column:               id
+    with_wildcard_routes: true
+
+warehouse:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Warehouse
+    module:               warehouse
+    prefix_path:          /warehouse
+    column:               id
+    with_wildcard_routes: true
+
+event:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Event
+    module:               event
+    prefix_path:          /event
+    column:               id
+    with_wildcard_routes: true
+
+employee:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Employee
+    module:               employee
+    prefix_path:          /employee
+    column:               id
+    with_wildcard_routes: true
+
+template:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Template
+    module:               template
+    prefix_path:          /template
+    column:               id
+    with_wildcard_routes: true
+
+purchasedetail:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Purchasedetail
+    module:               purchasedetail
+    prefix_path:          /purchasedetail
+    column:               id
+    with_wildcard_routes: true
+
+vendor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Vendor
+    module:               vendor
+    prefix_path:          /vendor
+    column:               id
+    with_wildcard_routes: true
+
+customer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Customer
+    module:               customer
+    prefix_path:          /customer
+    column:               id
+    with_wildcard_routes: true
+
+invoicedetail:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Invoicedetail
+    module:               invoicedetail
+    prefix_path:          /invoicedetail
+    column:               id
+    with_wildcard_routes: true
+
+brand:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Brand
+    module:               brand
+    prefix_path:          /brand
+    column:               id
+    with_wildcard_routes: true
+
+purchase:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Purchase
+    module:               purchase
+    prefix_path:          /purchase
+    column:               id
+    with_wildcard_routes: true
+
+invoice:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Invoice
+    module:               invoice
+    prefix_path:          /invoice
+    column:               id
+    with_wildcard_routes: true
+
+company:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Company
+    module:               company
+    prefix_path:          /company
+    column:               id
+    with_wildcard_routes: true
+
+product_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProductType
+    module:               product_type
+    prefix_path:          /product_type
+    column:               id
+    with_wildcard_routes: true
+
+product:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Product
+    module:               product
+    prefix_path:          /product
+    column:               id
+    with_wildcard_routes: true
+
+terms:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Terms
+    module:               terms
+    prefix_path:          /terms
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: home, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }    

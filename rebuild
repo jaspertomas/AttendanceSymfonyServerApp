@@ -1,0 +1,7 @@
+php symfony doctrine:build-schema
+php symfony doctrine:build-model
+php symfony doctrine:build-form
+php symfony doctrine:build-filter
+rm lib/model/doctrine/SfGuard*
+php symfony cc
+
