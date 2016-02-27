@@ -2,6 +2,7 @@
 <h1><?php echo 'Ledger: '.$account->getName();?></h1>   
 
 <?php 
+//show date form
 echo form_tag("account/ledger");
 $startDateForm = new sfWidgetFormDate();
 $endDateForm = new sfWidgetFormDate();
@@ -11,6 +12,7 @@ echo " to ".$endDateForm->render('enddatesplit',$enddate);
 <input type=hidden name=id id=id value="<?php echo $account->getId();?>">
 <input type=submit value="View">
 </form>
+
 <br>Total: <?php echo MyDecimal::format($total)?>
 
 <br><?php //echo link_to("Back to Income Statement","reports/incomeStatement); ?> | 

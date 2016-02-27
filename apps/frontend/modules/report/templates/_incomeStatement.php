@@ -10,11 +10,14 @@ foreach($accountTypes as $accttype_id=>$accttype){ ?>
     <td>View Ledger</td>
     <td></td>
   </tr>
-  <?php foreach($accounts as $account)if($account->getAccountTypeId()==$accttype_id){?>
+  <?php foreach($accounts as $account)
+  if($account->getAccountTypeId()==$accttype_id)
+  if(isset($totalsByAccount[$account->getId()]))
+  {?>
     <tr>
       <td><?php echo $account->getName() ?></td>
       <td align=right><?php echo MyDecimal::format($totalsByAccount[$account->getId()]) ?></td>
-      <td><?php echo link_to("View Ledger","occasion/ledger?id=".$occasion->getId()."&account_id=".$account->getId()); ?></td>
+      <td><?php echo link_to("View Ledger","occasion/ledger?id=".$account->getId()); ?></td>
     </tr>
   <?php }?>
 </table>

@@ -36,6 +36,7 @@
     <?php echo link_to("Journals",'account_entry/index'); ?> | 
     <?php echo link_to("Ledgers",'account_entry/index'); ?> | 
     <?php echo link_to("Reports",'account_entry/index'); ?> | 
+    <?php echo link_to("Income Statement",'report/incomeStatement'); ?> | 
     
     
 		<table>
