@@ -17,7 +17,7 @@ foreach($accountTypes as $accttype_id=>$accttype){ ?>
     <tr>
       <td><?php echo $account->getName() ?></td>
       <td align=right><?php echo MyDecimal::format($totalsByAccount[$account->getId()]) ?></td>
-      <td><?php echo link_to("View Ledger","occasion/ledger?id=".$account->getId()); ?></td>
+      <td><?php echo link_to("View Ledger","account/ledger?startdate=".$startdate."&enddate=".$enddate."&id=".$account->getId()); ?></td>
     </tr>
   <?php }?>
 </table>

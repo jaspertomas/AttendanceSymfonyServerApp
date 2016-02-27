@@ -14,7 +14,6 @@ echo " to ".$endDateForm->render('enddatesplit',$enddate);
 Total Sales: <?php echo MyDecimal::format($totalIncome)?>
 <br>Total Expense: <?php echo MyDecimal::format($totalExpense)?>
 <br>Total Income: <?php echo MyDecimal::format($totalProfit)?>
-<br><?php //echo link_to("Print","occasion/incomeStatementPdf?id=".$occasion->getId()); ?>
 <hr>
 
 <?php include_partial('report/incomeStatement', array(
@@ -26,5 +25,7 @@ Total Sales: <?php echo MyDecimal::format($totalIncome)?>
 'totalIncome' => $totalIncome,
 'totalExpense' => $totalExpense,
 'totalProfit' => $totalProfit,
+'startdate' => $startdate,
+'enddate' => $enddate,
 )) ?>
 
