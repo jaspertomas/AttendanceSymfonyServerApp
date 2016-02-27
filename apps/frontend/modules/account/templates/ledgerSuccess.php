@@ -15,7 +15,7 @@ echo " to ".$endDateForm->render('enddatesplit',$enddate);
 
 <br>Total: <?php echo MyDecimal::format($total)?>
 
-<br><?php //echo link_to("Back to Income Statement","reports/incomeStatement); ?> | 
+<br><?php echo link_to("Back to Income Statement","report/incomeStatement"); ?> | 
 <br>
 <br>
 <table border=1>
