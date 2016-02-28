@@ -1,11 +1,11 @@
 <?php
 
 
-class AccountentryTable extends Doctrine_Table
+class AccountEntryTable extends Doctrine_Table
 {
     
     public static function getInstance()
     {
-        return Doctrine_Core::getTable('Accountentry');
+        return Doctrine_Core::getTable('AccountEntry');
     }
 }

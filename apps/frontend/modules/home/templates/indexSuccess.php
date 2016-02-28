@@ -18,4 +18,7 @@ foreach($products as $product)
 	$product->save();
 }
 */
+
+//echo sha1("cc1f2f6421dde7479bdb328774efd1c7"."admin");
+
 ?>

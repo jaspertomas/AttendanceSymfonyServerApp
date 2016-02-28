@@ -27,8 +27,9 @@
                 <br>
           		<?php } ?>
     <p>
-    <b>Purchase Report</b> |
+    <b>Tomas Accounting System</b> |
     <?php echo link_to("Home",'home/index'); ?> | 
+    <?php echo link_to("Income Statement",'report/incomeStatement'); ?> | 
     <?php echo link_to("New Account",'account/new'); ?> | 
     <?php echo link_to("New Account Entry",'account_entry/new'); ?> | 
     <?php echo link_to("Accounts",'account/index'); ?> | 
@@ -36,7 +37,6 @@
     <?php echo link_to("Journals",'account_entry/index'); ?> | 
     <?php echo link_to("Ledgers",'account_entry/index'); ?> | 
     <?php echo link_to("Reports",'account_entry/index'); ?> | 
-    <?php echo link_to("Income Statement",'report/incomeStatement'); ?> | 
     
     
 		<table>
