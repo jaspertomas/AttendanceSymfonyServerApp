@@ -31,6 +31,7 @@
     <?php echo link_to("Home",'home/index'); ?> | 
     <?php echo link_to("Employees",'employee/index'); ?> | 
     <?php echo link_to("Records",'record/index'); ?> | 
+    <?php echo link_to("Validate",'record/validate'); ?> | 
     <?php echo link_to("Report",'record/report'); ?> | 
     
     
