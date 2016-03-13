@@ -19,13 +19,15 @@ abstract class BaseRecordForm extends BaseFormDoctrine
       'employee_name' => new sfWidgetFormInputText(),
       'datetime'      => new sfWidgetFormInputText(),
       'filename'      => new sfWidgetFormInputText(),
+      'is_valid'      => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'employee_name' => new sfValidatorString(array('max_length' => 25)),
-      'datetime'      => new sfValidatorString(array('max_length' => 50)),
+      'datetime'      => new sfValidatorString(array('max_length' => 20)),
       'filename'      => new sfValidatorString(array('max_length' => 30, 'required' => false)),
+      'is_valid'      => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('record[%s]');

@@ -33,7 +33,7 @@ Record:
       notnull: true
       autoincrement: false
     datetime:
-      type: string(50)
+      type: string(20)
       fixed: false
       unsigned: false
       primary: false
@@ -45,6 +45,14 @@ Record:
       unsigned: false
       primary: false
       notnull: false
+      autoincrement: false
+    is_valid:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
       autoincrement: false
 Settings:
   connection: doctrine

@@ -11,15 +11,18 @@ Doctrine_Manager::getInstance()->bindComponent('Record', 'doctrine');
  * @property string $employee_name
  * @property string $datetime
  * @property string $filename
+ * @property integer $is_valid
  * 
  * @method integer getId()            Returns the current record's "id" value
  * @method string  getEmployEE_namE() Returns the current record's "employee_name" value
  * @method string  getDatetime()      Returns the current record's "datetime" value
  * @method string  getFilename()      Returns the current record's "filename" value
+ * @method integer getIs_valId()      Returns the current record's "is_valid" value
  * @method Record  setId()            Sets the current record's "id" value
  * @method Record  setEmployEE_namE() Sets the current record's "employee_name" value
  * @method Record  setDatetime()      Sets the current record's "datetime" value
  * @method Record  setFilename()      Sets the current record's "filename" value
+ * @method Record  setIs_valId()      Sets the current record's "is_valid" value
  * 
  * @package    sf_sandbox
  * @subpackage model
@@ -48,14 +51,14 @@ abstract class BaseRecord extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 25,
              ));
-        $this->hasColumn('datetime', 'string', 50, array(
+        $this->hasColumn('datetime', 'string', 20, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 50,
+             'length' => 20,
              ));
         $this->hasColumn('filename', 'string', 30, array(
              'type' => 'string',
@@ -65,6 +68,16 @@ abstract class BaseRecord extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => 30,
+             ));
+        $this->hasColumn('is_valid', 'integer', 1, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 1,
              ));
     }
 

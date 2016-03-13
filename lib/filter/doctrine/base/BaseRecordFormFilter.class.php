@@ -16,12 +16,14 @@ abstract class BaseRecordFormFilter extends BaseFormFilterDoctrine
       'employee_name' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'datetime'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'filename'      => new sfWidgetFormFilterInput(),
+      'is_valid'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
       'employee_name' => new sfValidatorPass(array('required' => false)),
       'datetime'      => new sfValidatorPass(array('required' => false)),
       'filename'      => new sfValidatorPass(array('required' => false)),
+      'is_valid'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('record_filters[%s]');
@@ -45,6 +47,7 @@ abstract class BaseRecordFormFilter extends BaseFormFilterDoctrine
       'employee_name' => 'Text',
       'datetime'      => 'Text',
       'filename'      => 'Text',
+      'is_valid'      => 'Number',
     );
   }
 }
