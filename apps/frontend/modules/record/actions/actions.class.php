@@ -53,8 +53,8 @@ class recordActions extends autoRecordActions
     elseif($request->hasParameter("startdatesplit"))
     {
       $requestparams=$request->getParameter("startdatesplit");
-      $day=$requestparams["day"];
-      $month=$requestparams["month"];
+      $day=str_pad($requestparams["day"], 2, "0", STR_PAD_LEFT);
+      $month=str_pad($requestparams["month"], 2, "0", STR_PAD_LEFT);
       $year=$requestparams["year"];
       $startdate=$year."-".$month."-".$day;
     }
@@ -72,8 +72,8 @@ class recordActions extends autoRecordActions
     elseif($request->hasParameter("enddatesplit"))
     {
       $requestparams=$request->getParameter("enddatesplit");
-      $day=$requestparams["day"];
-      $month=$requestparams["month"];
+      $day=str_pad($requestparams["day"], 2, "0", STR_PAD_LEFT);
+      $month=str_pad($requestparams["month"], 2, "0", STR_PAD_LEFT);
       $year=$requestparams["year"];
       $enddate=$year."-".$month."-".$day;
     }
@@ -84,7 +84,7 @@ class recordActions extends autoRecordActions
     $this->enddate=$enddate;
  
     //read account entries from database
-    $this->entries=Doctrine_Query::create()
+    $this->records=Doctrine_Query::create()
         ->from('Record r')
         ->andWhere("r.datetime>=\"".$startdate."\"")
         ->andWhere("r.datetime<=\"".$enddate."\"")
