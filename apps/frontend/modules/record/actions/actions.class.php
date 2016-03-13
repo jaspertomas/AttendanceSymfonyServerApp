@@ -43,4 +43,53 @@ class recordActions extends autoRecordActions
   	$this->redirect($request->getReferer());
   }
 
+  public function executeReport(sfWebRequest $request)
+  {
+    //startdate
+    if($request->hasParameter("startdate"))
+    {
+      $startdate=$request->getParameter("startdate");
+    }
+    elseif($request->hasParameter("startdatesplit"))
+    {
+      $requestparams=$request->getParameter("startdatesplit");
+      $day=$requestparams["day"];
+      $month=$requestparams["month"];
+      $year=$requestparams["year"];
+      $startdate=$year."-".$month."-".$day;
+    }
+    else
+    {
+      $startdate=MyDate::today();
+    }
+    $this->startdate=$startdate;
+
+    //enddate
+    if($request->hasParameter("enddate"))
+    {
+      $enddate=$request->getParameter("enddate");
+    }
+    elseif($request->hasParameter("enddatesplit"))
+    {
+      $requestparams=$request->getParameter("enddatesplit");
+      $day=$requestparams["day"];
+      $month=$requestparams["month"];
+      $year=$requestparams["year"];
+      $enddate=$year."-".$month."-".$day;
+    }
+    else
+    {
+      $enddate=MyDate::today();
+    }
+    $this->enddate=$enddate;
+ 
+    //read account entries from database
+    $this->entries=Doctrine_Query::create()
+        ->from('Record r')
+        ->andWhere("r.datetime>=\"".$startdate."\"")
+        ->andWhere("r.datetime<=\"".$enddate."\"")
+      	->orderBy('r.datetime desc')
+      	->execute();
+	
+  }
 }
