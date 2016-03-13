@@ -1,23 +1,21 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           AccountEntry
+    model_class:           Employee
     theme:                 admin
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          account_entry
+    route_prefix:          employee
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
       fields:  ~
-      list:    
-        display: [date, Account, amount, description]
+      list:    ~
       filter:  ~
-      form:    
-        display: [date, account_id, amount, description, notes]
+      form:    ~
       edit:    ~
       new:     ~

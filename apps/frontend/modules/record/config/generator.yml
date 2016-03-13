@@ -1,23 +1,21 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           Account
+    model_class:           Record
     theme:                 admin
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          account
+    route_prefix:          record
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
       fields:  ~
-      list:    
-        display: [name, AccountType]
+      list:    ~
       filter:  ~
-      form:    
-        display: [name, account_type_id]
+      form:    ~
       edit:    ~
       new:     ~
