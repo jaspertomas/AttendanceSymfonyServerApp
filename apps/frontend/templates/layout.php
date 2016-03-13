@@ -27,37 +27,13 @@
                 <br>
           		<?php } ?>
     <p>
-    <b>Tomas Accounting System</b> |
+    <b>Attendance System</b> |
     <?php echo link_to("Home",'home/index'); ?> | 
-    <?php echo link_to("Income Statement",'report/incomeStatement'); ?> | 
-    <?php echo link_to("New Account",'account/new'); ?> | 
-    <?php echo link_to("New Account Entry",'account_entry/new'); ?> | 
-    <?php echo link_to("Accounts",'account/index'); ?> | 
-    <?php echo link_to("Account Entries",'account_entry/index'); ?> | 
-    <?php echo link_to("Journals",'account_entry/index'); ?> | 
-    <?php echo link_to("Ledgers",'account_entry/index'); ?> | 
-    <?php echo link_to("Reports",'account_entry/index'); ?> | 
+    <?php echo link_to("Employees",'employee/index'); ?> | 
+    <?php echo link_to("Records",'record/index'); ?> | 
+    <?php echo link_to("Report",'record/report'); ?> | 
     
     
-		<table>
-		<tr>
-
-			<td>
-					<input id="purchasesearchinput" name="purchasesearchinput">
-					<!--
-					<input value="Search PO / Cash Voucher" type="submit">
-					-->
-					Search PO / Cash Voucher
-			</td>
-			<td>
-				<input id=vendorsearchinput autocomplete="off"> Search Supplier |
-			</td>
-			<td>
-				<input type=button value="Clear" id=clearsearch>
-			</td>
-		</tr>
-		</table>
-		<div id="searchresult"></div>
   <hr>
     
     
@@ -65,39 +41,3 @@
   </body>
 </html>
 
-<script>
-$("#vendorsearchinput").keyup(function(event){
-	//if 3 or more letters in search box
-    //if($("#vendorsearchinput").val().length>=3){
-    
-    //if enter key is pressed
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
-	    $.ajax({url: "<?php echo "http://".$_SERVER['SERVER_NAME'].str_replace("index.php","",$_SERVER['SCRIPT_NAME'])?>/vendor/search?searchstring="+$("#vendorsearchinput").val(), success: function(result){
-	 		  $("#searchresult").html(result);
-	    }});
-    }
-    //else clear
-    else
- 		  $("#searchresult").html("");
-});
-$("#purchasesearchinput").keyup(function(event){
-	//if 3 or more letters in search box
-
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if(keycode == '13'){
-	    $.ajax({url: "<?php echo "http://".$_SERVER['SERVER_NAME'].str_replace("index.php","",$_SERVER['SCRIPT_NAME'])?>/purchase/search?searchstring="+$("#purchasesearchinput").val(), success: function(result){
-	 		  $("#searchresult").html(result);
-	    }});
-    }
-    //else clear
-    else
- 		  $("#searchresult").html("");
-});
-$("#clearsearch").click(function(){
- 		  $("#searchresult").html("");
-	    //hide all password entry boxes
-	    $(".password_tr").attr('hidden',true);
-});
-
-</script>

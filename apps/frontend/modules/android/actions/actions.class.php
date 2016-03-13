@@ -22,7 +22,7 @@ class androidActions extends sfActions
   {
 	$json = json_decode(file_get_contents('php://input'),true);
   
-    $access_token=md5("hello".$json['username']."its".MyDate::today());
+    $access_token=md5("tomas_accounting".$json['username']."its".MyDate::today());
     if($json['access_token']!=$access_token)
     {
       echo json_encode(array("success"=>false,"error"=>"Access denied"));

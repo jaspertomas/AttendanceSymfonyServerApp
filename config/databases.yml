@@ -2,6 +2,6 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=tomas_accounting'
+      dsn: 'mysql:host=localhost;dbname=attendance'
       username: root
       password: password

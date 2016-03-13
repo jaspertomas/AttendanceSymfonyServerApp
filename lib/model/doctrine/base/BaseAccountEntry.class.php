@@ -14,24 +14,30 @@ Doctrine_Manager::getInstance()->bindComponent('AccountEntry', 'doctrine');
  * @property decimal $amount
  * @property timestamp $created_at
  * @property string $notes
+ * @property integer $android_id
+ * @property integer $android_user_id
  * @property Account $Account
  * 
- * @method integer      getId()          Returns the current record's "id" value
- * @method integer      getAccount_id()  Returns the current record's "account_id" value
- * @method date         getDate()        Returns the current record's "date" value
- * @method string       getDescription() Returns the current record's "description" value
- * @method decimal      getAmount()      Returns the current record's "amount" value
- * @method timestamp    getCreated_at()  Returns the current record's "created_at" value
- * @method string       getNotes()       Returns the current record's "notes" value
- * @method Account      getAccount()     Returns the current record's "Account" value
- * @method AccountEntry setId()          Sets the current record's "id" value
- * @method AccountEntry setAccount_id()  Sets the current record's "account_id" value
- * @method AccountEntry setDate()        Sets the current record's "date" value
- * @method AccountEntry setDescription() Sets the current record's "description" value
- * @method AccountEntry setAmount()      Sets the current record's "amount" value
- * @method AccountEntry setCreated_at()  Sets the current record's "created_at" value
- * @method AccountEntry setNotes()       Sets the current record's "notes" value
- * @method AccountEntry setAccount()     Sets the current record's "Account" value
+ * @method integer      getId()              Returns the current record's "id" value
+ * @method integer      getAccount_id()      Returns the current record's "account_id" value
+ * @method date         getDate()            Returns the current record's "date" value
+ * @method string       getDescription()     Returns the current record's "description" value
+ * @method decimal      getAmount()          Returns the current record's "amount" value
+ * @method timestamp    getCreated_at()      Returns the current record's "created_at" value
+ * @method string       getNotes()           Returns the current record's "notes" value
+ * @method integer      getAndroid_id()      Returns the current record's "android_id" value
+ * @method integer      getAndroid_user_id() Returns the current record's "android_user_id" value
+ * @method Account      getAccount()         Returns the current record's "Account" value
+ * @method AccountEntry setId()              Sets the current record's "id" value
+ * @method AccountEntry setAccount_id()      Sets the current record's "account_id" value
+ * @method AccountEntry setDate()            Sets the current record's "date" value
+ * @method AccountEntry setDescription()     Sets the current record's "description" value
+ * @method AccountEntry setAmount()          Sets the current record's "amount" value
+ * @method AccountEntry setCreated_at()      Sets the current record's "created_at" value
+ * @method AccountEntry setNotes()           Sets the current record's "notes" value
+ * @method AccountEntry setAndroid_id()      Sets the current record's "android_id" value
+ * @method AccountEntry setAndroid_user_id() Sets the current record's "android_user_id" value
+ * @method AccountEntry setAccount()         Sets the current record's "Account" value
  * 
  * @package    sf_sandbox
  * @subpackage model
@@ -105,6 +111,24 @@ abstract class BaseAccountEntry extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => '',
+             ));
+        $this->hasColumn('android_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 4,
+             ));
+        $this->hasColumn('android_user_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 4,
              ));
     }
 

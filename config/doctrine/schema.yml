@@ -1,6 +1,6 @@
-Account:
+Employee:
   connection: doctrine
-  tableName: account
+  tableName: employee
   columns:
     id:
       type: integer(4)
@@ -9,59 +9,15 @@ Account:
       primary: true
       autoincrement: true
     name:
-      type: string(150)
+      type: string(25)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    account_type_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    account_category_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    is_special:
-      type: integer(1)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    currentqty:
-      type: 'decimal(10, 2)'
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    date:
-      type: date(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    AccountType:
-      local: account_type_id
-      foreign: id
-      type: one
-    AccountEntry:
-      local: id
-      foreign: account_id
-      type: many
-AccountCategory:
+Record:
   connection: doctrine
-  tableName: account_category
+  tableName: record
   columns:
     id:
       type: integer(4)
@@ -69,122 +25,27 @@ AccountCategory:
       unsigned: false
       primary: true
       autoincrement: true
-    name:
-      type: string(100)
+    employee_name:
+      type: string(25)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    code:
-      type: string(70)
+    datetime:
+      type: string(50)
       fixed: false
       unsigned: false
       primary: false
       notnull: true
       autoincrement: false
-    account_type_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    parent_code:
-      type: string(70)
+    filename:
+      type: string(30)
       fixed: false
       unsigned: false
       primary: false
       notnull: false
       autoincrement: false
-  relations:
-    AccountType:
-      local: account_type_id
-      foreign: id
-      type: one
-AccountEntry:
-  connection: doctrine
-  tableName: account_entry
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    account_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    date:
-      type: date(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    description:
-      type: string()
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    amount:
-      type: 'decimal(10, 2)'
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    created_at:
-      type: timestamp(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    notes:
-      type: string()
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-  relations:
-    Account:
-      local: account_id
-      foreign: id
-      type: one
-AccountType:
-  connection: doctrine
-  tableName: account_type
-  columns:
-    id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: true
-      autoincrement: true
-    name:
-      type: string(10)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-  relations:
-    Account:
-      local: id
-      foreign: account_type_id
-      type: many
-    AccountCategory:
-      local: id
-      foreign: account_type_id
-      type: many
 Settings:
   connection: doctrine
   tableName: settings
