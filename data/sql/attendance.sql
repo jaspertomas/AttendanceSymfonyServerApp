@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 3.4.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 27, 2016 at 09:08 PM
--- Server version: 5.5.46-0ubuntu0.14.04.2
--- PHP Version: 5.5.9-1ubuntu4.14
+-- Host: 127.0.0.1
+-- Generation Time: Mar 13, 2016 at 02:00 PM
+-- Server version: 5.5.27
+-- PHP Version: 5.5.30
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,111 +17,66 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `tomas_accounting`
+-- Database: `attendance`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Table structure for table `employee`
 --
 
-CREATE TABLE IF NOT EXISTS `account` (
+CREATE TABLE IF NOT EXISTS `employee` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) NOT NULL,
-  `account_type_id` int(11) NOT NULL,
-  `account_category_id` int(11) DEFAULT NULL,
-  `is_special` tinyint(1) DEFAULT NULL,
-  `currentqty` decimal(10,2) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `account_type_id_idx` (`account_type_id`),
-  KEY `account_category_code_idx` (`account_category_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+  `name` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data for table `account`
+-- Dumping data for table `employee`
 --
 
-INSERT INTO `account` (`id`, `name`, `account_type_id`, `account_category_id`, `is_special`, `currentqty`, `date`) VALUES
-(15, 'Toiletries Expense', 5, NULL, NULL, NULL, NULL),
-(17, 'Electricity Expense', 5, NULL, NULL, NULL, NULL),
-(19, 'Water Expense', 5, NULL, NULL, NULL, NULL),
-(20, 'Food Expense', 5, NULL, NULL, NULL, NULL),
-(21, 'Comfort Food Expense', 5, NULL, NULL, NULL, NULL),
-(22, 'Pet Food Expense', 5, NULL, NULL, NULL, NULL),
-(23, 'Pet Toiletries Expense', 5, NULL, NULL, NULL, NULL),
-(24, 'Pet Medicine Expense ', 5, NULL, NULL, NULL, NULL),
-(25, 'Pet Other Expense', 5, NULL, NULL, NULL, NULL),
-(26, 'Rent Income', 4, NULL, NULL, NULL, NULL),
-(27, 'Real Estate Tax Expense', 5, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` (`id`, `name`) VALUES
+(1, 'JASPER'),
+(2, 'MEANN'),
+(3, 'RUEL'),
+(4, 'PHILIP'),
+(5, 'CORA'),
+(6, 'MARCO'),
+(7, 'TATA'),
+(8, 'DANNY'),
+(9, 'RUDY'),
+(10, 'JOEBERT'),
+(11, 'JENNIFER'),
+(12, 'LUCIO'),
+(13, 'GILBERT'),
+(14, 'ERNESTO'),
+(15, 'ELMO');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account_category`
+-- Table structure for table `record`
 --
 
-CREATE TABLE IF NOT EXISTS `account_category` (
+CREATE TABLE IF NOT EXISTS `record` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `code` varchar(70) NOT NULL,
-  `account_type_id` int(11) NOT NULL,
-  `parent_code` varchar(70) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `account_type_id_idx` (`account_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
-
--- --------------------------------------------------------
+  `employee_name` varchar(25) NOT NULL,
+  `datetime` varchar(20) NOT NULL,
+  `filename` varchar(30) DEFAULT NULL,
+  `is_valid` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Table structure for table `account_entry`
+-- Dumping data for table `record`
 --
 
-CREATE TABLE IF NOT EXISTS `account_entry` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `account_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `description` tinytext,
-  `amount` decimal(10,2) NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `notes` text,
-  PRIMARY KEY (`id`),
-  KEY `account_id` (`account_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `account_entry`
---
-
-INSERT INTO `account_entry` (`id`, `account_id`, `date`, `description`, `amount`, `created_at`, `notes`) VALUES
-(1, 22, '2016-02-26', '3 small cans of sardines', 39.00, NULL, '1 small can can last for 1 week'),
-(2, 22, '2016-02-27', '2 kg cat food "Princess"', 200.00, NULL, ''),
-(3, 15, '2016-02-22', 'Tisyu 10 roll pack', 254.00, NULL, 'guesstimate price');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `account_type`
---
-
-CREATE TABLE IF NOT EXISTS `account_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `account_type`
---
-
-INSERT INTO `account_type` (`id`, `name`) VALUES
-(1, 'Asset'),
-(3, 'Equity'),
-(5, 'Expense'),
-(4, 'Income'),
-(2, 'Liability');
+INSERT INTO `record` (`id`, `employee_name`, `datetime`, `filename`, `is_valid`) VALUES
+(12, 'JASPER', '2016-03-13 18:31:34', 'JASPER-2016-03-13-18-31-34.jpg', 1),
+(14, 'JASPER', '2016-03-13 18:31:34', '1', 1),
+(15, 'MEANN', '2', '2', 1),
+(16, 'JASPER', '0', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -297,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `sf_guard_user` (
 --
 
 INSERT INTO `sf_guard_user` (`id`, `first_name`, `last_name`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'a@a.com', 'admin', 'sha1', 'cc1f2f6421dde7479bdb328774efd1c7', '14f10109242c4e5c001c827dbfa5541019b72f73', 1, 0, '2016-02-27 16:54:22', '2010-12-13 09:50:28', '2016-02-27 16:54:22'),
+(1, 'admin', 'admin', 'a@a.com', 'admin', 'sha1', 'cc1f2f6421dde7479bdb328774efd1c7', '14f10109242c4e5c001c827dbfa5541019b72f73', 1, 0, '2016-03-13 07:59:03', '2010-12-13 09:50:28', '2016-03-13 07:59:03'),
 (2, 'Lesley', 'Tomas', 'lesley_tomas@yahoo.com', 'lesley_tomas', 'sha1', 'ac35c23cd9f9a9c5c4693330853150d8', '89ec9d48979740c78b8cc16e2a407e3e93d6df86', 1, 1, '2011-06-10 09:33:54', '2010-12-14 08:14:59', '2011-06-10 09:33:54'),
 (3, 'Jason', '', 'user@user.com', 'jason', 'sha1', 'fbca49049a74774f5d5565b135f9a3d7', 'd8122d2b31b645fc811db2cd1557ddde1b293fe7', 1, 0, '2011-01-03 09:54:27', '2010-12-23 05:34:51', '2011-01-03 09:54:27');
 
@@ -341,24 +296,6 @@ CREATE TABLE IF NOT EXISTS `sf_guard_user_permission` (
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `account`
---
-ALTER TABLE `account`
-  ADD CONSTRAINT `account_account_type_id_account_type_id` FOREIGN KEY (`account_type_id`) REFERENCES `account_type` (`id`);
-
---
--- Constraints for table `account_category`
---
-ALTER TABLE `account_category`
-  ADD CONSTRAINT `account_category_account_type_id_account_type_id` FOREIGN KEY (`account_type_id`) REFERENCES `account_type` (`id`);
-
---
--- Constraints for table `account_entry`
---
-ALTER TABLE `account_entry`
-  ADD CONSTRAINT `accountentry_account_id_account_id` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
 
 --
 -- Constraints for table `sf_guard_forgot_password`
