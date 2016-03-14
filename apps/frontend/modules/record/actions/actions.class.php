@@ -13,13 +13,26 @@ require_once dirname(__FILE__).'/../lib/recordGeneratorHelper.class.php';
  */
 class recordActions extends autoRecordActions
 {
+  public function executeValidateIndex(sfWebRequest $request)
+  {
+    $this->employees=Doctrine_Query::create()
+        ->from('Employee e')
+    	->orderBy("e.name")
+		->execute();
+  }
   public function executeValidate(sfWebRequest $request)
   {
-    $this->records=Doctrine_Query::create()
+    $query=Doctrine_Query::create()
         ->from('Record r')
-      	->where('r.is_valid = 0')
-      	->orderBy("r.employee_name,r.datetime")
-      	->execute();
+    	->orderBy("r.datetime desc")
+      	->where('r.is_valid = 0');
+    if($request->hasParameter("employee_name"))
+    {
+    	$this->employee_name=$request->getParameter("employee_name");
+		$query->andWhere("r.employee_name='".$request->getParameter("employee_name")."'");
+    }
+
+  	$this->records=$query->execute();
   }
   public function executeProcessValidate(sfWebRequest $request)
   {
