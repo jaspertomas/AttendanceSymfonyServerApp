@@ -30,7 +30,17 @@ else
       <td><?php echo $record->getDatetime() ?></td>
       <td><?php echo link_to("Edit","record/edit?id=".$record->getId()) ?></td>
       <td><?php echo $record->getEmployeeName() ?></td>
-      <td><img width=25% src="<?php echo "http://".$_SERVER['SERVER_NAME'].str_replace(array("index.php","frontend_dev.php"),"",$_SERVER['SCRIPT_NAME'])?>/uploads/<?php echo $record->getFilename() ?>"></td>
+      <td>
+      <?php echo link_to(
+      "<img width=25% src=\""
+      ."http://".$_SERVER['SERVER_NAME'].str_replace(array("index.php","frontend_dev.php"),"",$_SERVER['SCRIPT_NAME'])
+      ."/uploads/"
+      .$record->getFilename()
+      ."\">"
+		,      
+      "record/zoom?id=".$record->getId()
+      );?>
+      </td>
     </tr>
   <?php }?>
 </table>

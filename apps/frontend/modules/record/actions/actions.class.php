@@ -13,6 +13,15 @@ require_once dirname(__FILE__).'/../lib/recordGeneratorHelper.class.php';
  */
 class recordActions extends autoRecordActions
 {
+  public function executeZoom(sfWebRequest $request)
+  {
+    $this->records=Doctrine_Query::create()
+        ->from('Record r')
+    	->limit(1)
+      	->where('r.id = '.$request->getParameter("id"))
+		->execute();
+	$this->record=$this->records[0];
+  }
   public function executeValidateIndex(sfWebRequest $request)
   {
     $this->employees=Doctrine_Query::create()
