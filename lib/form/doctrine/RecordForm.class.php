@@ -12,5 +12,7 @@ class RecordForm extends BaseRecordForm
 {
   public function configure()
   {
+    $this->widgetSchema['filename']= new sfWidgetFormInputHidden();
+    //$this->widgetSchema['is_valid']= new sfWidgetFormInputHidden();
   }
 }

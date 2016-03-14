@@ -16,6 +16,7 @@ generator:
       fields:  ~
       list:    ~
       filter:  ~
-      form:    ~
+      form:    
+        display: [_picture,_employee_name, datetime, is_valid, filename]
       edit:    ~
       new:     ~
