@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2016 at 03:51 AM
+-- Generation Time: Mar 15, 2016 at 03:03 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.5.30
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 -- Dumping data for table `employee`
 --
+
 -- --------------------------------------------------------
 
 --
@@ -46,11 +47,11 @@ CREATE TABLE IF NOT EXISTS `record` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `employee_name` varchar(25) NOT NULL,
   `datetime` varchar(20) NOT NULL,
-  `filename` varchar(30) DEFAULT NULL,
+  `filename` varchar(50) DEFAULT NULL,
   `is_valid` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `employee_name` (`employee_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `sf_guard_user` (
 --
 
 INSERT INTO `sf_guard_user` (`id`, `first_name`, `last_name`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'a@a.com', 'admin', 'sha1', 'cc1f2f6421dde7479bdb328774efd1c7', '14f10109242c4e5c001c827dbfa5541019b72f73', 1, 0, '2016-03-14 10:19:00', '2010-12-13 09:50:28', '2016-03-14 10:19:00'),
+(1, 'admin', 'admin', 'a@a.com', 'admin', 'sha1', 'cc1f2f6421dde7479bdb328774efd1c7', '14f10109242c4e5c001c827dbfa5541019b72f73', 1, 0, '2016-03-15 10:12:18', '2010-12-13 09:50:28', '2016-03-15 10:12:18'),
 (2, 'Lesley', 'Tomas', 'lesley_tomas@yahoo.com', 'lesley_tomas', 'sha1', 'ac35c23cd9f9a9c5c4693330853150d8', '89ec9d48979740c78b8cc16e2a407e3e93d6df86', 1, 1, '2011-06-10 09:33:54', '2010-12-14 08:14:59', '2011-06-10 09:33:54'),
 (3, 'Jason', '', 'user@user.com', 'jason', 'sha1', 'fbca49049a74774f5d5565b135f9a3d7', 'd8122d2b31b645fc811db2cd1557ddde1b293fe7', 1, 0, '2011-01-03 09:54:27', '2010-12-23 05:34:51', '2011-01-03 09:54:27');
 
@@ -250,12 +251,6 @@ CREATE TABLE IF NOT EXISTS `sf_guard_user_permission` (
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `record`
---
-ALTER TABLE `record`
-  ADD CONSTRAINT `record_ibfk_1` FOREIGN KEY (`employee_name`) REFERENCES `employee` (`name`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `sf_guard_forgot_password`
