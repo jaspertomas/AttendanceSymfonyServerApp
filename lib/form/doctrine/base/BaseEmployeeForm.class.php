@@ -16,12 +16,12 @@ abstract class BaseEmployeeForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'   => new sfWidgetFormInputHidden(),
-      'name' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Record'), 'add_empty' => false)),
+      'name' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'name' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Record'))),
+      'name' => new sfValidatorString(array('max_length' => 25)),
     ));
 
     $this->widgetSchema->setNameFormat('employee[%s]');

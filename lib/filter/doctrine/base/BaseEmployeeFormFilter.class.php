@@ -13,11 +13,11 @@ abstract class BaseEmployeeFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'name' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Record'), 'add_empty' => true)),
+      'name' => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'name' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Record'), 'column' => 'id')),
+      'name' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('employee_filters[%s]');
@@ -38,7 +38,7 @@ abstract class BaseEmployeeFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'   => 'Number',
-      'name' => 'ForeignKey',
+      'name' => 'Text',
     );
   }
 }

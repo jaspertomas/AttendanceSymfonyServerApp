@@ -18,7 +18,7 @@ else
 <input type=submit>
 <table>
   <tr>
-    <td><input type=checkbox id="select-all"></td>
+    <td><input type=checkbox id="select-all" checked=true></td>
     <td>Date and Time</td>
     <td>Edit</td>
     <td>Employee</td>
@@ -26,7 +26,7 @@ else
   </tr>
   <?php foreach($records as $record){?>
     <tr>
-      <td><input type=checkbox name=ids[] value=<?php echo $record->getId(); ?>></td>
+      <td><input type=checkbox name=ids[] checked=true value=<?php echo $record->getId(); ?>></td>
       <td><?php echo $record->getDatetime() ?></td>
       <td><?php echo link_to("Edit","record/edit?id=".$record->getId()) ?></td>
       <td><?php echo $record->getEmployeeName() ?></td>

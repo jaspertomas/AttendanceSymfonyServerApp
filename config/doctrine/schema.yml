@@ -15,11 +15,6 @@ Employee:
       primary: false
       notnull: true
       autoincrement: false
-  relations:
-    Record:
-      local: name
-      foreign: employee_name
-      type: many
 Record:
   connection: doctrine
   tableName: record
@@ -45,7 +40,7 @@ Record:
       notnull: true
       autoincrement: false
     filename:
-      type: string(30)
+      type: string(50)
       fixed: false
       unsigned: false
       primary: false
@@ -59,11 +54,6 @@ Record:
       default: '0'
       notnull: true
       autoincrement: false
-  relations:
-    Employee:
-      local: employee_name
-      foreign: name
-      type: one
 Settings:
   connection: doctrine
   tableName: settings

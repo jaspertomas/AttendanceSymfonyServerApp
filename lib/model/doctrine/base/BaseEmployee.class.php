@@ -9,14 +9,11 @@ Doctrine_Manager::getInstance()->bindComponent('Employee', 'doctrine');
  * 
  * @property integer $id
  * @property string $name
- * @property Doctrine_Collection $Record
  * 
- * @method integer             getId()     Returns the current record's "id" value
- * @method string              getName()   Returns the current record's "name" value
- * @method Doctrine_Collection getRecord() Returns the current record's "Record" collection
- * @method Employee            setId()     Sets the current record's "id" value
- * @method Employee            setName()   Sets the current record's "name" value
- * @method Employee            setRecord() Sets the current record's "Record" collection
+ * @method integer  getId()   Returns the current record's "id" value
+ * @method string   getName() Returns the current record's "name" value
+ * @method Employee setId()   Sets the current record's "id" value
+ * @method Employee setName() Sets the current record's "name" value
  * 
  * @package    sf_sandbox
  * @subpackage model
@@ -50,8 +47,6 @@ abstract class BaseEmployee extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Record', array(
-             'local' => 'name',
-             'foreign' => 'employee_name'));
+        
     }
 }

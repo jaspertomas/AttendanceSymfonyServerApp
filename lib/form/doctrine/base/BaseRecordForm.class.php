@@ -16,7 +16,7 @@ abstract class BaseRecordForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
-      'employee_name' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Employee'), 'add_empty' => false)),
+      'employee_name' => new sfWidgetFormInputText(),
       'datetime'      => new sfWidgetFormInputText(),
       'filename'      => new sfWidgetFormInputText(),
       'is_valid'      => new sfWidgetFormInputText(),
@@ -24,9 +24,9 @@ abstract class BaseRecordForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'employee_name' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Employee'))),
+      'employee_name' => new sfValidatorString(array('max_length' => 25)),
       'datetime'      => new sfValidatorString(array('max_length' => 20)),
-      'filename'      => new sfValidatorString(array('max_length' => 30, 'required' => false)),
+      'filename'      => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'is_valid'      => new sfValidatorInteger(array('required' => false)),
     ));
 
