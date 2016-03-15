@@ -108,6 +108,7 @@ class recordActions extends autoRecordActions
     //read account entries from database
     $this->records=Doctrine_Query::create()
         ->from('Record r')
+        ->where("r.is_valid!=0")
         ->andWhere("r.datetime>=\"".$startdate."\"")
         ->andWhere("r.datetime<=\"".$enddate."z\"")
       	->orderBy('r.datetime desc')
