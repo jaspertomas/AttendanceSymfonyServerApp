@@ -132,8 +132,8 @@ class recordActions extends autoRecordActions
 	//process time
 	if(strpos("p",strtolower($time)))$m="PM";
 	else $m="AM";
-	list($hour,$timesegments)=explode(":",$time);
-	$minute=preg_replace("/[^0-9,.]/", "", $timesegments);
+	list($hour,$minute)=explode(":",$time);
+	$minute=preg_replace("/[^0-9,.]/", "", $minute);//remove all non-numeric chars from minute
   	if($m=="PM")$hour+=12;
   	$time=str_pad($hour,2,"0",STR_PAD_LEFT).":".str_pad($minute,2,"0",STR_PAD_LEFT).":00";
   	$requestparams["datetime"]=$date." ".$time;
