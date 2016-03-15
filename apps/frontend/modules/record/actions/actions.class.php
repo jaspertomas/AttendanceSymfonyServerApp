@@ -114,4 +114,70 @@ class recordActions extends autoRecordActions
       	->execute();
 	
   }
+  
+
+  protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+  	$requestparams=$request->getParameter($form->getName());
+
+	//process datetime
+  	$requestparams=$request->getParameter($this->form->getName());
+  	$date=$request->getParameter("date");//array of month, day and year
+  	$time=$request->getParameter("time");
+	//process date
+  	$month=$date['month'];
+  	$day=$date['day'];
+  	$year=$date['year'];  	
+  	$date=$year."-".$month."-".$day;
+	//process time
+	if(strpos("p",strtolower($time)))$m="PM";
+	else $m="AM";
+	list($hour,$timesegments)=explode(":",$time);
+	$minute=preg_replace("/[^0-9,.]/", "", $timesegments);
+  	if($m=="PM")$hour+=12;
+  	$time=str_pad($hour,2,"0",STR_PAD_LEFT).":".str_pad($minute,2,"0",STR_PAD_LEFT).":00";
+  	$requestparams["datetime"]=$date." ".$time;
+  
+    $form->bind($requestparams, $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+
+      try {
+        $record = $form->save();
+      } catch (Doctrine_Validator_Exception $e) {
+
+        $errorStack = $form->getObject()->getErrorStack();
+
+        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ?  's' : null) . " with validation errors: ";
+        foreach ($errorStack as $field => $errors) {
+            $message .= "$field (" . implode(", ", $errors) . "), ";
+        }
+        $message = trim($message, ', ');
+
+        $this->getUser()->setFlash('error', $message);
+        return sfView::SUCCESS;
+      }
+
+      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $record)));
+
+      if ($request->hasParameter('_save_and_add'))
+      {
+        $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
+
+        $this->redirect('@record_new');
+      }
+      else
+      {
+        $this->getUser()->setFlash('notice', $notice);
+
+        $this->redirect(array('sf_route' => 'record_edit', 'sf_subject' => $record));
+      }
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+    }
+  }
+  
 }
